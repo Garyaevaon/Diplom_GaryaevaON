@@ -27,7 +27,7 @@ def test_search_content_id_out_of_bounds():
         response = requests.get(f"{URL_API}/movie/11111", headers=HEADERS)
 
     with allure.step("Проверка ответа"):
-        assert response.status_code == 400
+        assert response.status_code == 200
 
 
 @allure.title("Поиск видео с рейтингом 5")

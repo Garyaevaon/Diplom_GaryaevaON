@@ -23,7 +23,8 @@ class PageObgect:
 
     def search_by_genre(self, genre_value):
         genre_option = self.driver.find_element(
-            By.XPATH, f"//input[@value='{genre_value}'] | //option[text()='фантастика']")
+            By.XPATH, f"//input[@value='{
+                genre_value}'] | //option[text()='фантастика']")
         genre_option.click()
         self._click_search_button()
 
@@ -48,7 +49,8 @@ class PageObgect:
         self.driver.find_element(*self.search_button).click()
 
     def wait_for_element(self, by, value, timeout=8):
-        return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located((by, value)))
+        return WebDriverWait(self.driver, timeout).until(
+            EC.visibility_of_element_located((by, value)))
 
     def wait_for_element_with_text(self, by, value, text, timeout=15):
         try:
@@ -56,6 +58,7 @@ class PageObgect:
                 EC.text_to_be_present_in_element((by, value), text)
             )
         except TimeoutException:
-            print(f"Element with locator {by} and value {value} containing text '{
-                  text}' not found after {timeout} seconds.")
+            print(f"Element with locator {by} and value {
+                    value} containing text '{text}' not found after {
+                        timeout} seconds.")
             return False
