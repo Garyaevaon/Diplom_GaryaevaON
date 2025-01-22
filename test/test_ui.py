@@ -2,7 +2,7 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import allure
-from PageObgect import PageObgect
+from pages.PageObject import MainPage
 from heders import BASE_URL
 
 
@@ -16,7 +16,7 @@ def driver():
 @pytest.fixture
 def search_page(driver):
     driver.get(BASE_URL)
-    return PageObgect(driver)
+    return MainPage(driver)
 
 
 @allure.title("Поиск видео по году выпуска")
